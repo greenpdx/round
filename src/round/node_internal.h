@@ -12,7 +12,7 @@
 #define _ROUND_NODE_INTERNAL_H_
 
 #include <round/typedef.h>
-#include <round/util/oo.h>
+#include <round/util/object.h>
 #include <round/util/list.h>
 #include <round/util/json_internal.h>
 #include <round/util/strings.h>
@@ -24,6 +24,7 @@
 #include <round/clock.h>
 #include <round/registry.h>
 #include <round/message.h>
+#include <round/trigger.h>
 
 #include <round/method.h>
 
@@ -77,6 +78,7 @@ typedef struct {
   RoundRegistryManager *regMgr;
   RoundMessageManager *msgMgr;
   RoundThreadManager *threadMgr;
+  RoundTriggerManager *triggerMgr;
 } RoundLocalNode;
 
 typedef struct {
@@ -137,15 +139,12 @@ bool round_node_jsonrpcrequest2string(void* node, RoundJSONObject* reqObj, const
  * Function (LocalNode)
  ****************************************/
   
-RoundLocalNode *round_local_node_new(void);
-
 bool round_local_node_init(RoundLocalNode *node);
 bool round_local_node_initsystemmethods(RoundLocalNode *node);
 bool round_local_node_initscriptengines(RoundLocalNode *node);
 bool round_local_node_initthreads(RoundLocalNode *node);
 
 bool round_local_node_destory(RoundLocalNode *node);
-bool round_local_node_delete(RoundLocalNode *node);
 
 #define round_local_node_setaddress(node,addr) round_node_setaddress((RoundNode*)node,addr)
 #define round_local_node_getaddress(node,addr) round_node_getaddress((RoundNode*)node,addr)
@@ -162,8 +161,6 @@ bool round_local_node_delete(RoundLocalNode *node);
 #define round_local_node_getclock(node) round_clock_getvalue(node->clock)
 #define round_local_node_updateclockbyjsonobject(node,jsonobj) round_node_updateclockbyjsonobject((RoundNode*)node,jsonobj)
 
-bool round_local_node_start(RoundLocalNode *node);
-bool round_local_node_stop(RoundLocalNode *node);
 bool round_local_node_clear(RoundLocalNode *node);
 bool round_local_node_isrunning(RoundLocalNode *node);
 

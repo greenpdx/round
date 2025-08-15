@@ -323,7 +323,8 @@ JSBool round_js_sm_setregistry(JSContext* cx, unsigned argc, jsval* vp)
   if (!JSOBJECT_TO_CSTRING(param, paramStr, sizeof(paramStr)))
     return false;
 
-  const char *key, *val;
+  const char *key = NULL;
+  const char *val = NULL;
   RoundJSON* json = round_json_new();
   RoundError* err = round_error_new();
   if (json && err && round_json_parse(json, paramStr, err)) {
@@ -405,6 +406,7 @@ JSBool round_js_sm_getregistry(JSContext* cx, unsigned argc, jsval* vp)
 #endif
 
   if (reg) {
+#if defined(ROUND_GETREGISTRY_RETURN_OTHER_PARAMS)
     RoundJSONObject* map = round_json_map_new();
     if (map) {
       round_script_registry2json(reg, map);
@@ -417,6 +419,14 @@ JSBool round_js_sm_getregistry(JSContext* cx, unsigned argc, jsval* vp)
     else {
       JS_SET_RVAL(cx, vp, BOOLEAN_TO_JSVAL(JS_FALSE));
     }
+#else
+    const char *val;
+    if (round_registry_getstring(reg, &val)) {
+      JS_SET_STDSTRING_RVAL(cx, vp, val);
+    } else {
+      JS_SET_RVAL(cx, vp, BOOLEAN_TO_JSVAL(JS_FALSE));
+    }
+#endif
   }
   else {
     JS_SET_RVAL(cx, vp, BOOLEAN_TO_JSVAL(JS_FALSE));

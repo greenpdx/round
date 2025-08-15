@@ -10,6 +10,7 @@
 		21135E4A1C1A967600013136 /* NodeTestController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21135E491C1A967600013136 /* NodeTestController.cpp */; };
 		211E45D21B98188600CF0088 /* ClientTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 211E45D11B98188600CF0088 /* ClientTest.cpp */; };
 		211E45D41B9818E300CF0088 /* FinderTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 211E45D31B9818E300CF0088 /* FinderTest.cpp */; };
+		212055DB1D5CC8EB00AA7916 /* ThreadTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 212055DA1D5CC8EB00AA7916 /* ThreadTest.cpp */; };
 		2127082C1BD6640300000985 /* ConsistentHashingRingTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2127082B1BD6640300000985 /* ConsistentHashingRingTest.cpp */; };
 		2127083A1BD7995A00000985 /* JSONArrayTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 212708361BD7995A00000985 /* JSONArrayTest.cpp */; };
 		2127083B1BD7995A00000985 /* JSONMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 212708371BD7995A00000985 /* JSONMapTest.cpp */; };
@@ -25,6 +26,7 @@
 		215A079A1BB4663C00E9702F /* RegistryTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 215A07991BB4663C00E9702F /* RegistryTest.cpp */; };
 		2166EF8C1B9D2E5E002FE45D /* ScriptEngineMapTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2166EF8A1B9D2E5E002FE45D /* ScriptEngineMapTest.cpp */; };
 		2166EF8D1B9D2E5E002FE45D /* ScriptEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2166EF8B1B9D2E5E002FE45D /* ScriptEngineTest.cpp */; };
+		21685CAD1D5EFAA9009FB842 /* TimeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21685CAC1D5EFAA9009FB842 /* TimeTest.cpp */; };
 		216D19CF1BB4B37C0007B331 /* ClockTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 216D19CE1BB4B37C0007B331 /* ClockTest.cpp */; };
 		218569B31BB0D68800861B9B /* RemoteNodeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218569B21BB0D68800861B9B /* RemoteNodeTest.cpp */; };
 		218569B51BB0D69400861B9B /* LocalNodeTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218569B41BB0D69400861B9B /* LocalNodeTest.cpp */; };
@@ -42,6 +44,8 @@
 		21B40A4F1C32BD0400EAF962 /* Ruby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B40A4E1C32BD0400EAF962 /* Ruby.framework */; };
 		21B40A511C32BD3400EAF962 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B40A501C32BD3400EAF962 /* Python.framework */; };
 		21B40A531C33898400EAF962 /* PythonEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B40A521C33898400EAF962 /* PythonEngineTest.cpp */; };
+		21B5552C1D7B0F91005901FC /* ObjectTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B5552B1D7B0F91005901FC /* ObjectTest.cpp */; };
+		21B928731D6355960008397B /* TriggerTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21B928721D6355960008397B /* TriggerTest.cpp */; };
 		21C1C5BE1C1AAFBB005B95C3 /* OptionTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C1C5BD1C1AAFBB005B95C3 /* OptionTest.cpp */; };
 		21C1C5C01C1AB159005B95C3 /* StatusTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C1C5BF1C1AB159005B95C3 /* StatusTest.cpp */; };
 		21C887741BD8F00700449F5D /* DigestTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21C887731BD8F00700449F5D /* DigestTest.cpp */; };
@@ -54,6 +58,7 @@
 		21F6D99D1B9983A500714056 /* JsEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F6D99A1B9983A500714056 /* JsEngineTest.cpp */; };
 		21F6D99E1B9983A500714056 /* LuaEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F6D99B1B9983A500714056 /* LuaEngineTest.cpp */; };
 		21F6D99F1B9983A500714056 /* RubyEngineTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F6D99C1B9983A500714056 /* RubyEngineTest.cpp */; };
+		21F8EF741D766FAE00A7D22C /* RouteTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21F8EF731D766FAE00A7D22C /* RouteTest.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +97,7 @@
 		211E45BF1B9814FA00CF0088 /* libround.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libround.xcodeproj; path = ../../../lib/macosx/xcode/libround.xcodeproj; sourceTree = "<group>"; };
 		211E45D11B98188600CF0088 /* ClientTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClientTest.cpp; path = ../../ClientTest.cpp; sourceTree = "<group>"; };
 		211E45D31B9818E300CF0088 /* FinderTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FinderTest.cpp; path = ../../FinderTest.cpp; sourceTree = "<group>"; };
+		212055DA1D5CC8EB00AA7916 /* ThreadTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ThreadTest.cpp; path = ../../util/ThreadTest.cpp; sourceTree = "<group>"; };
 		2127082B1BD6640300000985 /* ConsistentHashingRingTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConsistentHashingRingTest.cpp; path = ../../util/ConsistentHashingRingTest.cpp; sourceTree = "<group>"; };
 		212708361BD7995A00000985 /* JSONArrayTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSONArrayTest.cpp; path = ../../json/JSONArrayTest.cpp; sourceTree = "<group>"; };
 		212708371BD7995A00000985 /* JSONMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = JSONMapTest.cpp; path = ../../json/JSONMapTest.cpp; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 		2166EF8A1B9D2E5E002FE45D /* ScriptEngineMapTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngineMapTest.cpp; path = ../../ScriptEngineMapTest.cpp; sourceTree = "<group>"; };
 		2166EF8B1B9D2E5E002FE45D /* ScriptEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ScriptEngineTest.cpp; path = ../../ScriptEngineTest.cpp; sourceTree = "<group>"; };
 		2166EF8E1B9D3394002FE45D /* RoundTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundTest.h; path = ../../RoundTest.h; sourceTree = "<group>"; };
+		21685CAC1D5EFAA9009FB842 /* TimeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TimeTest.cpp; path = ../../util/TimeTest.cpp; sourceTree = "<group>"; };
 		216D19CE1BB4B37C0007B331 /* ClockTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ClockTest.cpp; path = ../../ClockTest.cpp; sourceTree = "<group>"; };
 		218569B21BB0D68800861B9B /* RemoteNodeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RemoteNodeTest.cpp; path = ../../RemoteNodeTest.cpp; sourceTree = "<group>"; };
 		218569B41BB0D69400861B9B /* LocalNodeTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LocalNodeTest.cpp; path = ../../LocalNodeTest.cpp; sourceTree = "<group>"; };
@@ -125,6 +132,8 @@
 		21B40A4E1C32BD0400EAF962 /* Ruby.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Ruby.framework; path = System/Library/Frameworks/Ruby.framework; sourceTree = SDKROOT; };
 		21B40A501C32BD3400EAF962 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
 		21B40A521C33898400EAF962 /* PythonEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PythonEngineTest.cpp; sourceTree = "<group>"; };
+		21B5552B1D7B0F91005901FC /* ObjectTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ObjectTest.cpp; path = ../../util/ObjectTest.cpp; sourceTree = "<group>"; };
+		21B928721D6355960008397B /* TriggerTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = TriggerTest.cpp; path = ../../TriggerTest.cpp; sourceTree = "<group>"; };
 		21C1C5BD1C1AAFBB005B95C3 /* OptionTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = OptionTest.cpp; path = ../../util/OptionTest.cpp; sourceTree = "<group>"; };
 		21C1C5BF1C1AB159005B95C3 /* StatusTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StatusTest.cpp; path = ../../util/StatusTest.cpp; sourceTree = "<group>"; };
 		21C887731BD8F00700449F5D /* DigestTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DigestTest.cpp; path = ../../DigestTest.cpp; sourceTree = "<group>"; };
@@ -137,6 +146,7 @@
 		21F6D99A1B9983A500714056 /* JsEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JsEngineTest.cpp; sourceTree = "<group>"; };
 		21F6D99B1B9983A500714056 /* LuaEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LuaEngineTest.cpp; sourceTree = "<group>"; };
 		21F6D99C1B9983A500714056 /* RubyEngineTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RubyEngineTest.cpp; sourceTree = "<group>"; };
+		21F8EF731D766FAE00A7D22C /* RouteTest.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RouteTest.cpp; path = ../../RouteTest.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,11 +229,12 @@
 				21EA96E01B99105E00E00841 /* NodeRingTest.cpp */,
 				21EA96E11B99105E00E00841 /* NodeTest.cpp */,
 				21135E491C1A967600013136 /* NodeTestController.cpp */,
+				21135E4B1C1A974B00013136 /* NodeTestController.h */,
 				215A07991BB4663C00E9702F /* RegistryTest.cpp */,
 				218569B21BB0D68800861B9B /* RemoteNodeTest.cpp */,
 				21A762EC1B96F82400D29732 /* RoundTest.cpp */,
 				2166EF8E1B9D3394002FE45D /* RoundTest.h */,
-				21135E4B1C1A974B00013136 /* NodeTestController.h */,
+				21F8EF731D766FAE00A7D22C /* RouteTest.cpp */,
 				213389D21BFAEAB30014548E /* RpcServerTest.cpp */,
 				21F6D9991B9983A500714056 /* script */,
 				2166EF8A1B9D2E5E002FE45D /* ScriptEngineMapTest.cpp */,
@@ -231,6 +242,7 @@
 				21563A101BC419AB004D33EA /* ScriptTestController.cpp */,
 				21563A111BC419AB004D33EA /* ScriptTestController.h */,
 				215A078D1BB2FB9400E9702F /* ServerTest.cpp */,
+				21B928721D6355960008397B /* TriggerTest.cpp */,
 				2195A3DB1BD50DD600DF5436 /* util */,
 			);
 			name = Sources;
@@ -239,18 +251,21 @@
 		2195A3DB1BD50DD600DF5436 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				21C1C5BF1C1AB159005B95C3 /* StatusTest.cpp */,
-				21C1C5BD1C1AAFBB005B95C3 /* OptionTest.cpp */,
-				21C887751BD9115400449F5D /* MutexTest.cpp */,
-				21C887731BD8F00700449F5D /* DigestTest.cpp */,
-				2127082B1BD6640300000985 /* ConsistentHashingRingTest.cpp */,
 				2195A3DC1BD50DF000DF5436 /* Base64Test.cpp */,
+				2127082B1BD6640300000985 /* ConsistentHashingRingTest.cpp */,
+				21C887731BD8F00700449F5D /* DigestTest.cpp */,
 				2195A3DD1BD50DF000DF5436 /* ListOrderedTest.cpp */,
 				2195A3DE1BD50DF000DF5436 /* ListTest.cpp */,
 				2195A3DF1BD50DF000DF5436 /* MapTest.cpp */,
+				21C887751BD9115400449F5D /* MutexTest.cpp */,
+				21B5552B1D7B0F91005901FC /* ObjectTest.cpp */,
+				21C1C5BD1C1AAFBB005B95C3 /* OptionTest.cpp */,
 				2195A3E01BD50DF000DF5436 /* QueueTest.cpp */,
 				2195A3E11BD50DF000DF5436 /* SemaphoreTest.cpp */,
+				21C1C5BF1C1AB159005B95C3 /* StatusTest.cpp */,
 				2195A3E21BD50DF000DF5436 /* StringTest.cpp */,
+				212055DA1D5CC8EB00AA7916 /* ThreadTest.cpp */,
+				21685CAC1D5EFAA9009FB842 /* TimeTest.cpp */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -294,7 +309,7 @@
 		210363291B4A51B300DB3025 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = cybergarage;
 				TargetAttributes = {
 					210363301B4A51B300DB3025 = {
@@ -340,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21685CAD1D5EFAA9009FB842 /* TimeTest.cpp in Sources */,
 				2195A3E81BD50DF000DF5436 /* SemaphoreTest.cpp in Sources */,
 				2127083C1BD7995A00000985 /* JSONObjectTest.cpp in Sources */,
 				2195A3E71BD50DF000DF5436 /* QueueTest.cpp in Sources */,
@@ -352,14 +368,18 @@
 				212A954B1B9BD1A400EC9A71 /* MethodMapTest.cpp in Sources */,
 				215A078E1BB2FB9400E9702F /* ServerTest.cpp in Sources */,
 				2195A3E61BD50DF000DF5436 /* MapTest.cpp in Sources */,
+				21F8EF741D766FAE00A7D22C /* RouteTest.cpp in Sources */,
 				21C1C5BE1C1AAFBB005B95C3 /* OptionTest.cpp in Sources */,
 				212A954C1B9BD1A400EC9A71 /* MethodManagerTest.cpp in Sources */,
 				2127082C1BD6640300000985 /* ConsistentHashingRingTest.cpp in Sources */,
+				21B5552C1D7B0F91005901FC /* ObjectTest.cpp in Sources */,
+				21B928731D6355960008397B /* TriggerTest.cpp in Sources */,
 				211E45D21B98188600CF0088 /* ClientTest.cpp in Sources */,
 				21563A121BC419AB004D33EA /* ScriptTestController.cpp in Sources */,
 				2127083A1BD7995A00000985 /* JSONArrayTest.cpp in Sources */,
 				21A776B41BA0666C009BDB36 /* MessageTest.cpp in Sources */,
 				216D19CF1BB4B37C0007B331 /* ClockTest.cpp in Sources */,
+				212055DB1D5CC8EB00AA7916 /* ThreadTest.cpp in Sources */,
 				2127083B1BD7995A00000985 /* JSONMapTest.cpp in Sources */,
 				211E45D41B9818E300CF0088 /* FinderTest.cpp in Sources */,
 				21F6D99F1B9983A500714056 /* RubyEngineTest.cpp in Sources */,
@@ -411,8 +431,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -469,8 +491,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;

@@ -22,19 +22,52 @@ static void round_sig_handler(int sign);
 * Thread Function
 ****************************************/
 
-#if defined(WIN32)
-static DWORD WINAPI Win32ThreadProc(LPVOID lpParam)
+static int RoundExecThreadAction(RoundThread* thread)
 {
-  RoundThread* thread;
+  if (!thread->action)
+    return 0;
+  
+  if (round_thread_isstarttimeenabled(thread)) {
+    double sleepTime = round_thread_getstarttime(thread) - round_getcurrentunixtime();
+    round_sleep(sleepTime);
+  }
 
-  thread = (RoundThread*)lpParam;
-  if (thread->action != NULL)
+  double actionStartTime, actionExecTime;
+  
+  actionStartTime = round_getcurrentunixtime();
+  thread->action(thread);
+  actionExecTime = round_getcurrentunixtime() - actionStartTime;
+  
+  while (round_thread_isloop(thread) && round_thread_isrunnable(thread)) {
+    
+    if (round_thread_isstoptimeenabled(thread)) {
+      if (round_thread_getstoptime(thread) < round_getcurrentunixtime())
+        break;
+    }
+    
+    round_sleep(round_thread_getcycleinterval(thread) - actionExecTime);
+    
+    actionStartTime = round_getcurrentunixtime();
     thread->action(thread);
+    actionExecTime = round_getcurrentunixtime() - actionStartTime;
+  }
+  
+  return 0;
+}
 
+#if defined(WIN32)
+static DWORD WINAPI RoundWin32ThreadProc(LPVOID lpParam)
+{
+  RoundThread* thread = (RoundThread*)lpParam;
+
+  thread->runningFlag = true;
+  RoundExecThreadAction(thread);
+  thread->runningFlag = false;
+  
   return 0;
 }
 #else
-static void* PosixThreadProc(void* param)
+static void* RoundPosixThreadProc(void* param)
 {
   sigset_t set;
   struct sigaction actions;
@@ -50,12 +83,36 @@ static void* PosixThreadProc(void* param)
   actions.sa_handler = round_sig_handler;
   sigaction(SIGQUIT, &actions, NULL);
 
-  if (thread->action != NULL)
-    thread->action(thread);
-
+  RoundExecThreadAction(thread);
+  thread->runningFlag = false;
+  
   return 0;
 }
 #endif
+
+/****************************************
+ * round_thread_init
+ ****************************************/
+
+bool round_thread_init(RoundThread* thread)
+{
+  round_list_node_init((RoundList*)thread);
+  
+  thread->runnableFlag = false;
+  thread->action = NULL;
+  thread->userData = NULL;
+  
+  round_thread_setloop(thread, false);
+  round_thread_setcycleinterval(thread, 0.0);
+  round_thread_setstarttime(thread, 0.0);
+  round_thread_setstoptime(thread, 0.0);
+  
+  thread->name = round_string_new();
+  if (!thread->name)
+    return false;
+  
+  return true;
+}
 
 /****************************************
 * round_thread_new
@@ -70,11 +127,10 @@ RoundThread* round_thread_new(void)
   if (!thread)
     return NULL;
 
-  round_list_node_init((RoundList*)thread);
-
-  thread->runnableFlag = false;
-  thread->action = NULL;
-  thread->userData = NULL;
+  if (!round_thread_init(thread)) {
+    round_thread_delete(thread);
+    return NULL;
+  }
 
   return thread;
 }
@@ -88,7 +144,7 @@ bool round_thread_delete(RoundThread* thread)
   if (!thread)
     return false;
 
-  if (thread->runnableFlag == true) {
+  if (thread->runnableFlag) {
     round_thread_stop(thread);
   }
 
@@ -109,9 +165,10 @@ bool round_thread_start(RoundThread* thread)
     return false;
 
   thread->runnableFlag = true;
+  thread->runningFlag = true;
 
 #if defined(WIN32)
-  thread->hThread = CreateThread(NULL, 0, Win32ThreadProc, (LPVOID)thread, 0, &thread->threadID);
+  thread->hThread = CreateThread(NULL, 0, RoundWin32ThreadProc, (LPVOID)thread, 0, &thread->threadID);
 #else
   pthread_attr_t thread_attr;
   if (pthread_attr_init(&thread_attr) != 0) {
@@ -125,7 +182,7 @@ bool round_thread_start(RoundThread* thread)
     return false;
   }
 
-  if (pthread_create(&thread->pThread, &thread_attr, PosixThreadProc, thread) != 0) {
+  if (pthread_create(&thread->pThread, &thread_attr, RoundPosixThreadProc, thread) != 0) {
     thread->runnableFlag = false;
     pthread_attr_destroy(&thread_attr);
     return false;
@@ -145,7 +202,7 @@ bool round_thread_stop(RoundThread* thread)
   if (!thread)
     return false;
 
-  if (thread->runnableFlag == true) {
+  if (thread->runningFlag) {
     thread->runnableFlag = false;
 #if defined(WIN32)
     TerminateThread(thread->hThread, 0);
@@ -158,6 +215,9 @@ bool round_thread_stop(RoundThread* thread)
 #endif
   }
 
+  thread->runnableFlag = false;
+  thread->runningFlag = false;
+  
   return true;
 }
 
@@ -196,7 +256,7 @@ bool round_thread_isrunning(RoundThread* thread)
   if (!thread)
     return false;
 
-  return thread->runnableFlag;
+  return thread->runningFlag;
 }
 
 /****************************************

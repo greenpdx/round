@@ -14,6 +14,7 @@
 #include <round/typedef.h>
 #include <round/error.h>
 #include <round/script.h>
+#include <round/route.h>
 #include <round/util/json.h>
 #include <round/util/json_rpc.h>
 
@@ -94,9 +95,17 @@ bool round_node_setregistry(RoundNode* node, const char *key, const char *value,
 bool round_node_getregistry(RoundNode* node, const char *key, char **value, RoundError *err);
 bool round_node_removeregistry(RoundNode* node, const char *key, RoundError *err);
 
+bool round_node_setroute(RoundNode* node, RoundRoute *route, RoundError* err);
+bool round_node_removeroutebyname(RoundNode* node, const char* name, RoundError* err);
+
 /****************************************
  * Function (Local)
  ****************************************/
+
+RoundLocalNode *round_local_node_new(void);
+bool round_local_node_start(RoundLocalNode *node);
+bool round_local_node_stop(RoundLocalNode *node);
+bool round_local_node_delete(RoundLocalNode *node);
 
 #define round_local_node_setuserdata(node, data) round_node_setuserdata((RoundNode *)node, data)
 #define round_local_node_getuserdata(node) round_node_getuserdata((RoundNode *)node)
@@ -110,6 +119,8 @@ bool round_local_node_postmessage(RoundLocalNode *node, RoundJSONObject *reqObj,
 #define round_local_node_poststringmessage(node, reqStr, resObj, err) round_node_postmessagestring((RoundNode*)node, reqStr, resObj, err)
 #define round_local_node_postmethod(node, method, params, resObj, err) round_node_postmethod((RoundNode*)node, method, params, resObj, err)
 #define round_local_node_execmethod(node, dest, method, params, resObj, err) round_node_execmethod((RoundNode*)node, dest, method, params, resObj, err)
+
+bool round_local_node_execjsonrequest(RoundLocalNode* node, const char *jsonReq, const char **jsonRes, RoundError* err);
 
 RoundScriptEngine *round_local_node_getenginebylanguage(RoundLocalNode *node, const char *lang);
 

@@ -8,7 +8,7 @@
  *
  ******************************************************************/
 
-#include <round/route.h>
+#include <round/route_internal.h>
 
 /****************************************
  * round_route_object_init
@@ -16,10 +16,17 @@
 
 bool round_route_object_init(RoundRouteObject* obj)
 {
-  obj->tokenCnt = 0;
-  obj->tokens = NULL;
-  obj->tokenObjs = NULL;
-
+  if (!obj)
+    return false;
+  
+  obj->name = round_string_new();
+  
+  if (!obj->name)
+    return false;
+  
+  round_route_object_settype(obj, RoundRouteObjectNone);
+  round_route_object_settarget(obj, NULL);
+  
   return true;
 }
 
@@ -44,26 +51,6 @@ RoundRouteObject* round_route_object_new()
 }
 
 /****************************************
- * round_route_object_clear
- ****************************************/
-
-bool round_route_object_clear(RoundRouteObject* obj)
-{
-  if (!obj)
-    return false;
-
-  size_t n;
-  for (n = 0; n < obj->tokenCnt; n++) {
-    if (obj->tokens[n]) {
-      free(obj->tokens[n]);
-    }
-    obj->tokenObjs[n] = NULL;
-  }
-
-  return true;
-}
-
-/****************************************
  * round_route_object_delete
  ****************************************/
 
@@ -72,7 +59,9 @@ bool round_route_object_delete(RoundRouteObject* obj)
   if (!obj)
     return false;
 
-  bool isSuccess = round_route_object_clear(obj);
+  bool isSuccess = true;
+  
+  isSuccess &= round_string_delete(obj->name);
 
   free(obj);
 

@@ -18,18 +18,22 @@
 #else
 #include <unistd.h>
 #include <time.h>
+#include <sys/time.h>
 #endif
 
 /****************************************
 * round_wait
 ****************************************/
 
-void round_wait(clock_t mtime)
+void round_wait(double waitSec)
 {
+  if (waitSec < 0.0)
+    return;
+  
 #if defined(WIN32)
-  Sleep(mtime);
+  Sleep(waitSec * 1000);
 #else
-  usleep(((useconds_t)(mtime * 1000)));
+  usleep(((useconds_t)(waitSec * 1000000)));
 #endif
 }
 
@@ -37,14 +41,23 @@ void round_wait(clock_t mtime)
 * round_waitrandom
 ****************************************/
 
-void round_waitrandom(clock_t mtime)
+void round_waitrandom(double waitSec)
 {
-  double factor;
-  long waitTime;
+  double factor = (double)rand() / (double)RAND_MAX;
+  round_wait(waitSec * factor);
+}
 
-  factor = (double)rand() / (double)RAND_MAX;
-  waitTime = (long)((double)mtime * factor);
-  round_wait(waitTime);
+/****************************************
+ * round_getcurrentunixtime
+ ****************************************/
+
+double round_getcurrentunixtime(void)
+{
+  double unixTime = 0.0;
+  struct timeval now;
+  gettimeofday(&now, NULL);
+  unixTime = now.tv_sec + (now.tv_usec / 1000000.0);
+  return unixTime;
 }
 
 /****************************************
@@ -60,7 +73,7 @@ clock_t round_getcurrentsystemtime(void)
 * round_random
 ****************************************/
 
-float round_random(void)
+double round_random(void)
 {
   static bool seedDone = false;
 
@@ -69,5 +82,5 @@ float round_random(void)
     seedDone = true;
   }
 
-  return (float)rand() / (float)RAND_MAX;
+  return (double)rand() / (double)RAND_MAX;
 }

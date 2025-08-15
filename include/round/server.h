@@ -39,6 +39,7 @@ bool round_server_clear(RoundServer *server);
 
 bool round_server_start(RoundServer *server);
 bool round_server_stop(RoundServer *server);
+bool round_server_restart(RoundServer *server);
 bool round_server_isrunning(RoundServer *server);
 
 RoundLocalNode *round_server_getlocalnode(RoundServer *server);
@@ -65,7 +66,6 @@ bool round_server_list_add(RoundServerList *servers, RoundServer *server);
 bool round_server_list_start(RoundServerList *servers);
 bool round_server_list_stop(RoundServerList *servers);
 
-  
 #ifdef  __cplusplus
 } /* extern C */
 #endif

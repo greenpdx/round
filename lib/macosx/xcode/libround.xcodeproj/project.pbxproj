@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210989CA1D61FC3D0004C11F /* trigger.c in Sources */ = {isa = PBXBuildFile; fileRef = 210989C81D61FC3D0004C11F /* trigger.c */; };
+		210989CB1D61FC3D0004C11F /* trigger.h in Headers */ = {isa = PBXBuildFile; fileRef = 210989C91D61FC3D0004C11F /* trigger.h */; };
+		210989CD1D61FD3F0004C11F /* trigger_manager.c in Sources */ = {isa = PBXBuildFile; fileRef = 210989CC1D61FD3F0004C11F /* trigger_manager.c */; };
 		210E7BA31BA145F600343445 /* json.h in Headers */ = {isa = PBXBuildFile; fileRef = 210E7BA21BA145F600343445 /* json.h */; };
 		211E45CA1B98154A00CF0088 /* client.h in Headers */ = {isa = PBXBuildFile; fileRef = 211E45C91B98154A00CF0088 /* client.h */; };
 		211E45CD1B98157400CF0088 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 211E45CC1B98157400CF0088 /* client.c */; };
@@ -28,6 +31,8 @@
 		21346A821BB50AE300B5F3A6 /* json_path_get.c in Sources */ = {isa = PBXBuildFile; fileRef = 21346A811BB50AE300B5F3A6 /* json_path_get.c */; };
 		213931781BB54B9900C93773 /* json_path_set.c in Sources */ = {isa = PBXBuildFile; fileRef = 213931771BB54B9900C93773 /* json_path_set.c */; };
 		2140DE991C34DF410067DAD0 /* script.h in Headers */ = {isa = PBXBuildFile; fileRef = 2140DE981C34DF410067DAD0 /* script.h */; };
+		21450C931D86484E00C92F59 /* route.h in Headers */ = {isa = PBXBuildFile; fileRef = 21450C921D86484E00C92F59 /* route.h */; };
+		21450C951D86487A00C92F59 /* route_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 21450C941D86487A00C92F59 /* route_internal.h */; };
 		2148E5D81B9DFDAF0021CE7B /* script_engine_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 2148E5D61B9DFDAF0021CE7B /* script_engine_map.c */; };
 		2148E5D91B9DFDAF0021CE7B /* method_map.c in Sources */ = {isa = PBXBuildFile; fileRef = 2148E5D71B9DFDAF0021CE7B /* method_map.c */; };
 		2148E5E01B9F1A7D0021CE7B /* error_rpc.c in Sources */ = {isa = PBXBuildFile; fileRef = 2148E5DF1B9F1A7D0021CE7B /* error_rpc.c */; };
@@ -42,10 +47,11 @@
 		215E6B471B9E75EA00AAA203 /* map_hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 215E6B461B9E75EA00AAA203 /* map_hash.c */; };
 		21606BF71B9FC8EB000463A8 /* json_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 21606BF61B9FC8EB000463A8 /* json_internal.h */; };
 		21606BFA1BA029A0000463A8 /* method.h in Headers */ = {isa = PBXBuildFile; fileRef = 21606BF91BA029A0000463A8 /* method.h */; };
+		2160771E1DB775B0003EC196 /* client_finder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2160771D1DB775B0003EC196 /* client_finder.c */; };
+		216077201DB77782003EC196 /* server_finder.c in Sources */ = {isa = PBXBuildFile; fileRef = 2160771F1DB77782003EC196 /* server_finder.c */; };
 		2160B8911BB3B59F002026E3 /* set_method.c in Sources */ = {isa = PBXBuildFile; fileRef = 2160B88F1BB3B59F002026E3 /* set_method.c */; };
 		2160B8921BB3B59F002026E3 /* system_method.h in Headers */ = {isa = PBXBuildFile; fileRef = 2160B8901BB3B59F002026E3 /* system_method.h */; };
 		2160B8941BB3B9F7002026E3 /* system_method.c in Sources */ = {isa = PBXBuildFile; fileRef = 2160B8931BB3B9F7002026E3 /* system_method.c */; };
-		216611791BA135450097BB98 /* oo.h in Headers */ = {isa = PBXBuildFile; fileRef = 216611781BA135450097BB98 /* oo.h */; };
 		216D19C51BB4743A0007B331 /* registry_manager.c in Sources */ = {isa = PBXBuildFile; fileRef = 216D19C41BB4743A0007B331 /* registry_manager.c */; };
 		216D19CC1BB4B3570007B331 /* clock.h in Headers */ = {isa = PBXBuildFile; fileRef = 216D19CA1BB4B3570007B331 /* clock.h */; };
 		216D19CD1BB4B3570007B331 /* clock.c in Sources */ = {isa = PBXBuildFile; fileRef = 216D19CB1BB4B3570007B331 /* clock.c */; };
@@ -89,6 +95,8 @@
 		21B40A471C32400600EAF962 /* python_engine.c in Sources */ = {isa = PBXBuildFile; fileRef = 21B40A451C32400600EAF962 /* python_engine.c */; };
 		21B40A481C32400600EAF962 /* python.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B40A461C32400600EAF962 /* python.h */; };
 		21B40A4D1C32BCE000EAF962 /* Python.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B40A4C1C32BCE000EAF962 /* Python.framework */; };
+		21B5552F1D7B1372005901FC /* object.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B5552D1D7B1372005901FC /* object.h */; };
+		21B555301D7B1372005901FC /* object.c in Sources */ = {isa = PBXBuildFile; fileRef = 21B5552E1D7B1372005901FC /* object.c */; };
 		21B755F01C270A4400E3F057 /* option.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B755EF1C270A4400E3F057 /* option.h */; };
 		21B763DD1BA05ED1003C29F3 /* queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 21B763DA1BA05ED1003C29F3 /* queue.c */; };
 		21B763DF1BA05ED1003C29F3 /* queue.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B763DC1BA05ED1003C29F3 /* queue.h */; };
@@ -112,7 +120,6 @@
 		21E6E5731BB01A49006E853D /* base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E6E5711BB01A49006E853D /* base64.h */; };
 		21E96A1E1C2C2D9B001044DB /* route_manager.c in Sources */ = {isa = PBXBuildFile; fileRef = 21E96A1B1C2C2D9B001044DB /* route_manager.c */; };
 		21E96A1F1C2C2D9B001044DB /* route.c in Sources */ = {isa = PBXBuildFile; fileRef = 21E96A1C1C2C2D9B001044DB /* route.c */; };
-		21E96A201C2C2D9B001044DB /* route.h in Headers */ = {isa = PBXBuildFile; fileRef = 21E96A1D1C2C2D9B001044DB /* route.h */; };
 		21E96A221C2C2EAF001044DB /* route_object.c in Sources */ = {isa = PBXBuildFile; fileRef = 21E96A211C2C2EAF001044DB /* route_object.c */; };
 		21EA96CD1B990AF800E00841 /* cluster_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 21EA96CA1B990AF800E00841 /* cluster_internal.h */; };
 		21EA96CE1B990AF800E00841 /* cluster_manager.c in Sources */ = {isa = PBXBuildFile; fileRef = 21EA96CB1B990AF800E00841 /* cluster_manager.c */; };
@@ -153,6 +160,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210989C81D61FC3D0004C11F /* trigger.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = trigger.c; path = ../../../src/round/trigger.c; sourceTree = "<group>"; };
+		210989C91D61FC3D0004C11F /* trigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = trigger.h; path = ../../../src/round/trigger.h; sourceTree = "<group>"; };
+		210989CC1D61FD3F0004C11F /* trigger_manager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = trigger_manager.c; path = ../../../src/round/trigger_manager.c; sourceTree = "<group>"; };
 		210E7BA21BA145F600343445 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = json.h; path = ../../../include/round/util/json.h; sourceTree = "<group>"; };
 		211E45C91B98154A00CF0088 /* client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = client.h; path = ../../../include/round/client.h; sourceTree = "<group>"; };
 		211E45CC1B98157400CF0088 /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = client.c; path = ../../../src/round/client.c; sourceTree = "<group>"; };
@@ -175,6 +185,8 @@
 		21346A811BB50AE300B5F3A6 /* json_path_get.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = json_path_get.c; path = ../../../src/round/util/json_path_get.c; sourceTree = "<group>"; };
 		213931771BB54B9900C93773 /* json_path_set.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = json_path_set.c; path = ../../../src/round/util/json_path_set.c; sourceTree = "<group>"; };
 		2140DE981C34DF410067DAD0 /* script.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = script.h; path = ../../../include/round/script.h; sourceTree = "<group>"; };
+		21450C921D86484E00C92F59 /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = route.h; path = ../../../include/round/route.h; sourceTree = "<group>"; };
+		21450C941D86487A00C92F59 /* route_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = route_internal.h; path = ../../../src/round/route_internal.h; sourceTree = "<group>"; };
 		2148E5D61B9DFDAF0021CE7B /* script_engine_map.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = script_engine_map.c; path = ../../../src/round/script_engine_map.c; sourceTree = "<group>"; };
 		2148E5D71B9DFDAF0021CE7B /* method_map.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = method_map.c; path = ../../../src/round/method_map.c; sourceTree = "<group>"; };
 		2148E5DF1B9F1A7D0021CE7B /* error_rpc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = error_rpc.c; path = ../../../src/round/error_rpc.c; sourceTree = "<group>"; };
@@ -189,10 +201,11 @@
 		215E6B461B9E75EA00AAA203 /* map_hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = map_hash.c; path = ../../../src/round/util/map_hash.c; sourceTree = "<group>"; };
 		21606BF61B9FC8EB000463A8 /* json_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = json_internal.h; path = ../../../src/round/util/json_internal.h; sourceTree = "<group>"; };
 		21606BF91BA029A0000463A8 /* method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = method.h; path = ../../../src/round/method.h; sourceTree = "<group>"; };
+		2160771D1DB775B0003EC196 /* client_finder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = client_finder.c; path = ../../../src/round/client_finder.c; sourceTree = "<group>"; };
+		2160771F1DB77782003EC196 /* server_finder.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = server_finder.c; path = ../../../src/round/server_finder.c; sourceTree = "<group>"; };
 		2160B88F1BB3B59F002026E3 /* set_method.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = set_method.c; sourceTree = "<group>"; };
 		2160B8901BB3B59F002026E3 /* system_method.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = system_method.h; sourceTree = "<group>"; };
 		2160B8931BB3B9F7002026E3 /* system_method.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = system_method.c; sourceTree = "<group>"; };
-		216611781BA135450097BB98 /* oo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = oo.h; path = ../../../src/round/util/oo.h; sourceTree = "<group>"; };
 		216D19C41BB4743A0007B331 /* registry_manager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = registry_manager.c; path = ../../../src/round/registry_manager.c; sourceTree = "<group>"; };
 		216D19CA1BB4B3570007B331 /* clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = clock.h; path = ../../../src/round/clock.h; sourceTree = "<group>"; };
 		216D19CB1BB4B3570007B331 /* clock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = clock.c; path = ../../../src/round/clock.c; sourceTree = "<group>"; };
@@ -236,6 +249,8 @@
 		21B40A451C32400600EAF962 /* python_engine.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = python_engine.c; sourceTree = "<group>"; };
 		21B40A461C32400600EAF962 /* python.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = python.h; sourceTree = "<group>"; };
 		21B40A4C1C32BCE000EAF962 /* Python.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Python.framework; path = System/Library/Frameworks/Python.framework; sourceTree = SDKROOT; };
+		21B5552D1D7B1372005901FC /* object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = object.h; path = ../../../src/round/util/object.h; sourceTree = "<group>"; };
+		21B5552E1D7B1372005901FC /* object.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = object.c; path = ../../../src/round/util/object.c; sourceTree = "<group>"; };
 		21B755EF1C270A4400E3F057 /* option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = option.h; path = ../../../include/round/util/option.h; sourceTree = "<group>"; };
 		21B763DA1BA05ED1003C29F3 /* queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = queue.c; path = ../../../src/round/util/queue.c; sourceTree = "<group>"; };
 		21B763DC1BA05ED1003C29F3 /* queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = queue.h; path = ../../../src/round/util/queue.h; sourceTree = "<group>"; };
@@ -259,7 +274,6 @@
 		21E6E5711BB01A49006E853D /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = base64.h; path = ../../../src/round/util/base64.h; sourceTree = "<group>"; };
 		21E96A1B1C2C2D9B001044DB /* route_manager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = route_manager.c; path = ../../../src/round/route_manager.c; sourceTree = "<group>"; };
 		21E96A1C1C2C2D9B001044DB /* route.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = route.c; path = ../../../src/round/route.c; sourceTree = "<group>"; };
-		21E96A1D1C2C2D9B001044DB /* route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = route.h; path = ../../../src/round/route.h; sourceTree = "<group>"; };
 		21E96A211C2C2EAF001044DB /* route_object.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = route_object.c; path = ../../../src/round/route_object.c; sourceTree = "<group>"; };
 		21EA96CA1B990AF800E00841 /* cluster_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cluster_internal.h; path = ../../../src/round/cluster_internal.h; sourceTree = "<group>"; };
 		21EA96CB1B990AF800E00841 /* cluster_manager.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cluster_manager.c; path = ../../../src/round/cluster_manager.c; sourceTree = "<group>"; };
@@ -309,6 +323,7 @@
 		211E45C81B98153200CF0088 /* round */ = {
 			isa = PBXGroup;
 			children = (
+				21450C921D86484E00C92F59 /* route.h */,
 				2140DE981C34DF410067DAD0 /* script.h */,
 				211E45C91B98154A00CF0088 /* client.h */,
 				21EA96D01B990B1100E00841 /* cluster.h */,
@@ -327,6 +342,8 @@
 		211E45CB1B98155300CF0088 /* round */ = {
 			isa = PBXGroup;
 			children = (
+				2160771F1DB77782003EC196 /* server_finder.c */,
+				2160771D1DB775B0003EC196 /* client_finder.c */,
 				211E45CF1B9816F300CF0088 /* client_internal.h */,
 				211E45CC1B98157400CF0088 /* client.c */,
 				216D19CB1BB4B3570007B331 /* clock.c */,
@@ -360,10 +377,10 @@
 				215A07961BB4662700E9702F /* registry.c */,
 				215A07951BB4662700E9702F /* registry.h */,
 				218569AE1BB0D66A00861B9B /* remote_node.c */,
+				21450C941D86487A00C92F59 /* route_internal.h */,
 				21E96A1B1C2C2D9B001044DB /* route_manager.c */,
 				21E96A211C2C2EAF001044DB /* route_object.c */,
 				21E96A1C1C2C2D9B001044DB /* route.c */,
-				21E96A1D1C2C2D9B001044DB /* route.h */,
 				213389CF1BFAEA980014548E /* rpc_server.c */,
 				213389CE1BFAEA980014548E /* rpc_server.h */,
 				21F6D9A91B99848000714056 /* script */,
@@ -373,6 +390,9 @@
 				215A07891BB2FA8000E9702F /* server_internal.h */,
 				21EB02C91C45880600D89922 /* server_list.c */,
 				215A078A1BB2FA8000E9702F /* server.c */,
+				210989CC1D61FD3F0004C11F /* trigger_manager.c */,
+				210989C81D61FC3D0004C11F /* trigger.c */,
+				210989C91D61FC3D0004C11F /* trigger.h */,
 				2178B3631B98BE7B00B9D86B /* util */,
 			);
 			name = round;
@@ -465,9 +485,10 @@
 				21FBE36E1B9DC803000C2512 /* map_object.c */,
 				21852FB31B9DB11000C7F878 /* map.c */,
 				21852FB41B9DB11000C7F878 /* map.h */,
+				21B5552E1D7B1372005901FC /* object.c */,
+				21B5552D1D7B1372005901FC /* object.h */,
 				2178B3661B98BEAE00B9D86B /* mutex.c */,
 				2178B3671B98BEAE00B9D86B /* mutex.h */,
-				216611781BA135450097BB98 /* oo.h */,
 				21A776C11BA07345009BDB36 /* queue_object.c */,
 				21B763DA1BA05ED1003C29F3 /* queue.c */,
 				21B763DC1BA05ED1003C29F3 /* queue.h */,
@@ -560,10 +581,12 @@
 			files = (
 				218569A81BAFFE9F00861B9B /* native.h in Headers */,
 				21B755F01C270A4400E3F057 /* option.h in Headers */,
+				21450C951D86487A00C92F59 /* route_internal.h in Headers */,
 				21A776BE1BA06DC2009BDB36 /* message.h in Headers */,
+				210989CB1D61FC3D0004C11F /* trigger.h in Headers */,
 				21C1C5C21C1AB198005B95C3 /* status.h in Headers */,
+				21B5552F1D7B1372005901FC /* object.h in Headers */,
 				219A8E251B9AF54D004ED802 /* js.h in Headers */,
-				21E96A201C2C2D9B001044DB /* route.h in Headers */,
 				21E6E5731BB01A49006E853D /* base64.h in Headers */,
 				215A07971BB4662700E9702F /* registry.h in Headers */,
 				21C887721BD8EFD300449F5D /* digest.h in Headers */,
@@ -595,6 +618,7 @@
 				21EA96D71B990C3B00E00841 /* node_internal.h in Headers */,
 				212080751BFB6B7000190BF8 /* upnp_server.h in Headers */,
 				211E45D71B98192600CF0088 /* finder_internal.h in Headers */,
+				21450C931D86484E00C92F59 /* route.h in Headers */,
 				21A776C71BA08A7C009BDB36 /* semaphore.h in Headers */,
 				215A078B1BB2FA8000E9702F /* server_internal.h in Headers */,
 				219A8E2D1B9AF607004ED802 /* script_internal.h in Headers */,
@@ -602,7 +626,6 @@
 				210E7BA31BA145F600343445 /* json.h in Headers */,
 				2160B8921BB3B59F002026E3 /* system_method.h in Headers */,
 				21852FB61B9DB11000C7F878 /* map.h in Headers */,
-				216611791BA135450097BB98 /* oo.h in Headers */,
 				21D427EA1B9F00B700BBBD41 /* error.h in Headers */,
 				216D19CC1BB4B3570007B331 /* clock.h in Headers */,
 				218EE9661B9AE73300960009 /* finder.h in Headers */,
@@ -637,7 +660,7 @@
 		212ADD801A8D4F000054EC0F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Satoshi Konno";
 				TargetAttributes = {
 					212ADD871A8D4F000054EC0F = {
@@ -697,6 +720,7 @@
 				21EA96D91B990C3B00E00841 /* node.c in Sources */,
 				21346A821BB50AE300B5F3A6 /* json_path_get.c in Sources */,
 				215A079C1BB4681000E9702F /* registry_map.c in Sources */,
+				2160771E1DB775B0003EC196 /* client_finder.c in Sources */,
 				21EB02CA1C45880600D89922 /* server_list.c in Sources */,
 				2178B36B1B98BEAE00B9D86B /* list.c in Sources */,
 				21F6D9AF1B99848000714056 /* js_engine.c in Sources */,
@@ -721,6 +745,7 @@
 				215E6B471B9E75EA00AAA203 /* map_hash.c in Sources */,
 				215A07941BB450E100E9702F /* remove_method.c in Sources */,
 				21346A801BB4FA6B00B5F3A6 /* set_registry.c in Sources */,
+				210989CA1D61FC3D0004C11F /* trigger.c in Sources */,
 				21E6E5721BB01A49006E853D /* base64.c in Sources */,
 				2148E5D81B9DFDAF0021CE7B /* script_engine_map.c in Sources */,
 				21E96A1F1C2C2D9B001044DB /* route.c in Sources */,
@@ -734,6 +759,7 @@
 				21D427EC1B9F010A00BBBD41 /* error.c in Sources */,
 				2178B36D1B98BEAE00B9D86B /* mutex.c in Sources */,
 				21F6D9B31B99848000714056 /* script_engine.c in Sources */,
+				210989CD1D61FD3F0004C11F /* trigger_manager.c in Sources */,
 				213389D11BFAEA980014548E /* rpc_server.c in Sources */,
 				21FBE36F1B9DC803000C2512 /* map_object_list.c in Sources */,
 				2178B3701B98BEAE00B9D86B /* thread.c in Sources */,
@@ -743,7 +769,9 @@
 				21E96A221C2C2EAF001044DB /* route_object.c in Sources */,
 				21DFCA461C287EC800F75D5C /* js_sm_functions.c in Sources */,
 				21346A7E1BB4FA6B00B5F3A6 /* get_registry.c in Sources */,
+				216077201DB77782003EC196 /* server_finder.c in Sources */,
 				21EA96CF1B990AF800E00841 /* cluster.c in Sources */,
+				21B555301D7B1372005901FC /* object.c in Sources */,
 				21F6D9B21B99848000714056 /* ruby_engine.c in Sources */,
 				21E96A1E1C2C2D9B001044DB /* route_manager.c in Sources */,
 				21C482451B9F5A100087380C /* json.c in Sources */,
@@ -784,8 +812,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
@@ -793,6 +823,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -838,8 +869,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
@@ -847,6 +880,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

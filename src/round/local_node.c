@@ -26,9 +26,7 @@
 
 RoundLocalNode* round_local_node_new(void)
 {
-  RoundLocalNode* node;
-
-  node = (RoundLocalNode*)malloc(sizeof(RoundLocalNode));
+  RoundLocalNode* node = (RoundLocalNode*)malloc(sizeof(RoundLocalNode));
 
   if (!node)
     return NULL;
@@ -47,6 +45,9 @@ RoundLocalNode* round_local_node_new(void)
 
 bool round_local_node_init(RoundLocalNode* node)
 {
+  if (!node)
+    return false;
+  
   round_node_init((RoundNode*)node);
   round_oo_setdescendantdestoroyfunc(node, round_local_node_destory);
 
@@ -54,12 +55,13 @@ bool round_local_node_init(RoundLocalNode* node)
   node->regMgr = round_registry_manager_new();
   node->threadMgr = round_thread_manager_new();
   node->msgMgr = round_message_manager_new();
-
+  node->triggerMgr = round_trigger_manager_new();
+  
   if (!node->methodMgr || !node->regMgr || !node->threadMgr || !node->msgMgr)
     return false;
 
   round_node_setpostmessagefunc(node, round_local_node_postmessage);
-
+  
   if (!round_local_node_initthreads(node))
     return false;
 
@@ -163,6 +165,7 @@ bool round_local_node_destory(RoundLocalNode* node)
   round_registry_manager_delete(node->regMgr);
   round_thread_manager_delete(node->threadMgr);
   round_message_manager_delete(node->msgMgr);
+  round_trigger_manager_delete(node->triggerMgr);
 
   return true;
 }
@@ -219,6 +222,7 @@ bool round_local_node_start(RoundLocalNode* node)
 
   isSuccess &= round_cluster_manager_addnode(node->clusterMgr, (RoundNode*)node);
   isSuccess &= round_thread_manager_start(node->threadMgr);
+  isSuccess &= round_trigger_manager_start(node->triggerMgr);
 
   if (!isSuccess) {
     round_local_node_stop(node);
@@ -240,6 +244,7 @@ bool round_local_node_stop(RoundLocalNode* node)
     return false;
 
   isSuccess &= round_thread_manager_stop(node->threadMgr);
+  isSuccess &= round_trigger_manager_stop(node->triggerMgr);
 
   return isSuccess;
 }
@@ -256,6 +261,9 @@ bool round_local_node_isrunning(RoundLocalNode* node)
   if (!round_thread_manager_isrunning(node->threadMgr))
     return false;
 
+  if (!round_trigger_manager_isrunning(node->threadMgr))
+    return false;
+  
   return true;
 }
 
@@ -377,7 +385,7 @@ bool round_local_node_setregistry(RoundLocalNode* node, const char* key, const c
     }
   }
 
-  round_registry_setvalue(reg, val);
+  round_registry_setstring(reg, val);
   round_registry_setts(reg, time(NULL));
   round_registry_setlts(reg, round_local_node_getclock(node));
 
@@ -406,6 +414,49 @@ bool round_local_node_removeregistry(RoundLocalNode* node, const char* key)
     return false;
 
   return round_registry_manager_remove(node->regMgr, key);
+}
+
+/****************************************
+ * round_local_node_execjsonrequest
+ ****************************************/
+
+bool round_local_node_execjsonrequest(RoundLocalNode* node, const char *jsonReq, const char **jsonRes, RoundError* err)
+{
+  if (!node || !jsonReq || !jsonRes || !err)
+    return round_node_rpcerrorcode2error(node, ROUND_RPC_ERROR_CODE_INTERNAL_ERROR, err);
+  
+  RoundJSON* json = round_json_new();
+  if (!json)
+    return round_node_rpcerrorcode2error(node, ROUND_RPC_ERROR_CODE_INTERNAL_ERROR, err);
+  
+  if (!round_json_parse(json, jsonReq, err)) {
+    round_json_delete(json);
+    return round_node_rpcerrorcode2error(node, ROUND_RPC_ERROR_CODE_INVALID_REQUEST, err);
+  }
+  
+  // Post request
+  
+  RoundJSONObject* reqObj = round_json_getrootobject(json);
+  if (!reqObj) {
+    round_json_delete(json);
+    return round_node_rpcerrorcode2error(node, ROUND_RPC_ERROR_CODE_INTERNAL_ERROR, err);
+  }
+  
+  RoundJSONObject *resObj = NULL;
+  if (round_local_node_postmessage(node, reqObj, &resObj, err)) {
+    round_json_delete(json);
+    return false;
+  }
+
+
+  if (resObj) {
+    round_json_object_tocompactstring(resObj, jsonRes);
+    round_json_object_delete(resObj);
+  }
+
+  round_json_delete(json);
+  
+  return true;
 }
 
 /****************************************
